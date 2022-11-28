@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>
+      Daily Sleepiness
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div id="number">
+    <p>How sleepy do you feel?</p>
+    <ion-item>
+      <ion-label>Sleepiness Level</ion-label>
+      <ion-select [(ngModel)] = "selected">
+        <ion-select-option [value]="1">1</ion-select-option>
+        <ion-select-option [value]="2">2</ion-select-option>
+        <ion-select-option [value]="3">3</ion-select-option>
+        <ion-select-option [value]="4">4</ion-select-option>
+        <ion-select-option [value]="5">5</ion-select-option>
+        <ion-select-option [value]="6">6</ion-select-option>
+        <ion-select-option [value]="7">7</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button shape="round" expand="block" (click)="sleepinessSubmit()">Add Log</ion-button>
+
+    <ion-list id="sleepinessLevel">
+      <ion-card color="medium"><ion-card-content>1: Feeling active, vital, alert, or wide awake</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>2: Functioning at high levels, but not at peak; able to concentrate</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>3: Awake, but relaxed; responsive but not fully alert</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>4: Somewhat foggy, let down</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>5: Foggy; losing interest in remaining awake; slowed down</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>6: Sleepy, woozy, fighting sleep; prefer to lie down</ion-card-content></ion-card>
+      <ion-card color="medium"><ion-card-content>7: No longer fighting sleep, sleep onset soon; having dream-like thoughts</ion-card-content></ion-card>
+
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button [routerLink]="['/home']" shape="round" expand="block" size="medium" color="dark">
+    <strong>Home</strong>
+  </ion-button>
+</ion-footer>

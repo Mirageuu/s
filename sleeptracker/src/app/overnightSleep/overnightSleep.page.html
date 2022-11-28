@@ -1,0 +1,50 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>
+      Overnight Sleep
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+    <p>When did you sleep and wake up?</p>
+    <ion-item (click)="showPicker =! showPicker">
+      <ion-label>Sleep</ion-label>
+      <ion-text slot="end">
+        {{formattedString}}
+      </ion-text>
+    </ion-item>
+    <ion-datetime *ngIf="showPicker"
+                  #datetime
+                  [value]="dateValue" size="cover"
+                  (ionChange)="dateChanged(datetime.value)"
+                  showDefaultButtons="true"
+                  (ionCancel)="showPicker = false;">
+    </ion-datetime>
+    <ion-item (click)="showPickerwake=!showPickerwake">
+      <ion-label>Wake</ion-label>
+      <ion-text slot="end">
+        {{formattedStringwake}}
+      </ion-text>
+    </ion-item>
+
+    <ion-datetime *ngIf="showPickerwake"
+                  #datetime
+                  [value]="dateValuewake" size="cover"
+                  (ionChange)="dateChangedwake(datetime.value)"
+                  showDefaultButtons="true"
+                  (ionCancel)="showPickerwake=false;">
+    </ion-datetime>
+
+    <ion-row style="height: 50px"></ion-row>
+    <ion-button shape="round" expand="block" (click)="overnightSleepSubmit()">Add Log</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button [routerLink]="['/home']" shape="round" expand="block" size="medium" color="dark">
+    <strong>Home</strong>
+  </ion-button>
+</ion-footer>

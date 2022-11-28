@@ -1,0 +1,79 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>
+      Sleep Tracker
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sleep Tracker</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-toolbar>
+    <ion-title size="small">
+      Choose a method to start...
+    </ion-title>
+  </ion-toolbar>
+
+  <div id="night">
+    <ion-button [routerLink]="['/overnightSleep']" expand="block" fill="outline" size="medium" color="dark">
+      <strong><ion-icon name="alarm-outline"></ion-icon>Log Overnight Sleep<ion-icon name="alarm-outline"></ion-icon></strong>
+    </ion-button>
+  </div>
+
+  <div id="day">
+    <ion-button [routerLink]="['/sleepiness']" expand="block" fill="outline" size="medium" color="dark">
+      <strong><ion-icon name="alarm-outline"></ion-icon>Log Daily Sleepiness<ion-icon name="alarm-outline"></ion-icon></strong>
+    </ion-button>
+  </div>
+
+
+  <div>
+    <ion-row style="height: 50px"></ion-row>
+    <div color="dark">
+      <h6>Overnight Sleep Log</h6>
+    </div>
+
+    <ion-row style="border-bottom: groove;">
+      <ion-col><ion-label><strong>Date</strong></ion-label></ion-col>
+      <ion-col><ion-label><strong>Time</strong></ion-label></ion-col>
+    </ion-row>
+
+    <div>
+      <ion-row *ngFor="let OvernightData of OvernightDatas">
+        <ion-col >
+          <ion-label>{{OvernightData.date}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label>{{OvernightData.time}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row style="height: 50px"></ion-row>
+
+    <div color="dark">
+      <h6>Daily Sleepiness Scale Log</h6>
+    </div>
+
+    <ion-row style="border-bottom: groove;">
+      <ion-col><ion-label><strong>Date</strong></ion-label></ion-col>
+      <ion-col><ion-label><strong>Scale</strong></ion-label></ion-col>
+    </ion-row>
+    <div>
+      <ion-row *ngFor="let SleepinessData of SleepinessDatas">
+        <ion-col >
+          <ion-label>{{ SleepinessData.date }}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label>{{ SleepinessData.summary }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
+
